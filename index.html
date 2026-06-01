@@ -13,11 +13,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <link rel="icon" type="image/png" sizes="512x512" href="./apple-touch-icon.png?v=3">
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=3">
-  <link rel="apple-touch-icon" sizes="512x512" href="./apple-touch-icon.png?v=3">
-
-  <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbzTuxp_9_IFCiEcwB0yHgExhZG6C6ZuM8rTk5Mu27tnnEwlk_Xk-XVjuzyJLkbBv2askw/exec">
+  <link rel="icon" type="image/png" href="./apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="./apple-touch-icon.png">
 
   <style>
     body {
@@ -41,9 +40,9 @@
     }
 
     img {
-      width: 96px;
-      height: 96px;
-      border-radius: 22px;
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
       display: block;
       margin: 0 auto 16px;
     }
@@ -62,24 +61,44 @@
 
     a {
       display: inline-block;
-      padding: 12px 18px;
+      padding: 13px 18px;
       border-radius: 14px;
       background: #2563eb;
       color: #ffffff;
       text-decoration: none;
       font-weight: 800;
     }
+
+    .small {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
   </style>
+
+  <script>
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzTuxp_9_IFCiEcwB0yHgExhZG6C6ZuM8rTk5Mu27tnnEwlk_Xk-XVjuzyJLkbBv2askw/exec';
+
+    window.addEventListener('load', function () {
+      const isIosStandalone = window.navigator.standalone === true;
+      const isStandaloneDisplay = window.matchMedia('(display-mode: standalone)').matches;
+
+      if (isIosStandalone || isStandaloneDisplay) {
+        window.location.href = WEB_APP_URL;
+      }
+    });
+  </script>
 </head>
 
 <body>
   <div class="box">
-    <img src="./apple-touch-icon.png?v=3" alt="街頭指導">
+    <img src="./apple-touch-icon.png" alt="街頭指導">
     <h1>街頭指導</h1>
-    <p>街頭指導報告書アプリを起動しています。</p>
+    <p>ホーム画面に追加する場合は、この画面で共有ボタンから追加してください。</p>
     <a href="https://script.google.com/macros/s/AKfycbzTuxp_9_IFCiEcwB0yHgExhZG6C6ZuM8rTk5Mu27tnnEwlk_Xk-XVjuzyJLkbBv2askw/exec">
       起動する
     </a>
+    <div class="small">ホーム画面から開いた場合は自動で起動します。</div>
   </div>
 </body>
 </html>
